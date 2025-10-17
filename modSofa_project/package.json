@@ -1,0 +1,13 @@
+{
+  "name": "modsofa",
+  "version": "1.0.0",
+  "description": "Modular Sofa System",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'Build complete'",
+    "watch": "echo 'Watching for changes...'"
+  },
+  "dependencies": {
+    "@minecraft/server": "beta"
+  }
+}

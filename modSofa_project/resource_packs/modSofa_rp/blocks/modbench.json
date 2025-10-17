@@ -1,0 +1,23 @@
+{
+  "format_version": "1.20.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "furniture:modbench"
+    },
+    "components": {
+      
+      
+      
+      "minecraft:destroy_time": 1.5,
+      
+      
+      "minecraft:block_sound": "wood",
+      
+      
+      "minecraft:block_light_emission": 0,
+      
+      
+      "minecraft:particle": "minecraft:basic_smoke_particle"
+    }
+  }
+}

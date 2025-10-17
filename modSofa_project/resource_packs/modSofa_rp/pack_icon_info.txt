@@ -1,0 +1,1 @@
+Placer ici : pack_icon.png (128x128 ou 256x256)

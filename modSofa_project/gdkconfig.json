@@ -1,0 +1,18 @@
+{
+  "buildConfig": {
+    "behaviorPack": "./packs/behavior_pack",
+    "resourcePack": "./packs/resource_pack"
+  },
+  "worldConfig": {
+    "enableGameTest": true,
+    "enableScriptDebugging": true,
+    "gameRules": {
+      "showcoordinates": true,
+      "dodaylightcycle": false
+    }
+  },
+  "scriptConfig": {
+    "entry": "scripts/main.js",
+    "watchMode": true
+  }
+}
