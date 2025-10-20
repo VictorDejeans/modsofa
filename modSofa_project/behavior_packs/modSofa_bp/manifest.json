@@ -5,7 +5,7 @@
     "description": "Modular Furniture System",
     "uuid": "9bf2fb94-e424-4ed5-bd73-60f589db5ddd",
     "version": [1, 0, 0],
-    "min_engine_version": [1, 21, 50]
+    "min_engine_version": [1, 21, 130]
   },
   "modules": [
     {
@@ -22,13 +22,7 @@
     }
   ],
   "dependencies": [
-    {
-      "module_name": "@minecraft/server",
-      "version": "1.14.0-beta"
-    },
-    {
-      "uuid": "00290a61-fa63-4229-b4a5-4612abb05d84",
-      "version": [1, 0, 0]
-    }
-  ]
+  { "module_name": "@minecraft/server", "version": "2.5.0-beta" },
+  { "uuid": "00290a61-fa63-4229-b4a5-4612abb05d84", "version": [1, 0, 0] }
+]
 }

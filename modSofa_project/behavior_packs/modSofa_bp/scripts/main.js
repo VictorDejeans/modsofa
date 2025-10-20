@@ -1,19 +1,26 @@
-import { world, system } from "@minecraft/server";
+// behavior_packs/modSofa_bp/scripts/main.js
+import { world } from "@minecraft/server";
+import { registerBenchConnector, enableBenchFallback } from "./modules/bench_connector.js";
 
-world.sendMessage("§a[MODSOFA] Script loaded!");
+// Register once on startup (idempotent)
+const unregisterBenchConnector = registerBenchConnector();
 
-system.runTimeout(() => {
-  world.sendMessage("§b[MODSOFA] System active!");
-}, 20);
+// If the API offers a worldInitialize we don’t need anything extra for benches,
+// but leave this in case you later add custom block components.
+const hasBefore = !!world.beforeEvents?.worldInitialize;
+const hasLegacy = !!world.events?.worldInitialize;
 
-world.afterEvents.chatSend.subscribe((event) => {
-  if (event.message === "!test") {
-    event.sender.sendMessage("§a✓ Script works!");
-  }
-});
+if (hasBefore) {
+  world.beforeEvents.worldInitialize.subscribe((_ev) => {
+    registerBenchConnector();
+  });
+} else if (hasLegacy) {
+  world.events.worldInitialize.subscribe((_ev) => {
+    registerBenchConnector();
+  });
+} else {
+  console.warn("❌ [ModSofa] worldInitialize introuvable. Fallback events only.");
+}
 
-world.afterEvents.playerPlaceBlock.subscribe((event) => {
-  if (event.block.typeId === "furniture:modbench") {
-    world.sendMessage("§d[MODSOFA] Bench placed!");
-  }
-});
+// Always enable the safe fallback listeners so the block still works
+enableBenchFallback();
